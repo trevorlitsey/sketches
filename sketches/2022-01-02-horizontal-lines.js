@@ -1,10 +1,10 @@
-const canvasSketch = require('canvas-sketch');
-const { renderPaths } = require('canvas-sketch-util/penplot');
-const { clipPolylinesToBox } = require('canvas-sketch-util/geometry');
+const canvasSketch = require("canvas-sketch");
+const { renderPaths } = require("canvas-sketch-util/penplot");
+const { clipPolylinesToBox } = require("canvas-sketch-util/geometry");
 
 const settings = {
-  dimensions: 'A4',
-  orientation: 'portrait',
+  dimensions: "A4",
+  orientation: "portrait",
   pixelsPerInch: 300,
   scaleToView: true,
 };
@@ -30,7 +30,7 @@ const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
   console.log(lines);
   const margin = 100;
   const box = [margin, margin, width - margin, height - margin];
-  const boxedLines = lines; // clipPolylinesToBox(lines, box);
+  const boxedLines = clipPolylinesToBox(lines, box);
 
   return (props) => renderPaths(boxedLines, props);
 };
