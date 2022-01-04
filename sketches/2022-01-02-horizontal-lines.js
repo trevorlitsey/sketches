@@ -27,7 +27,7 @@ const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
 
     return [from, to];
   });
-  console.log(lines);
+
   const margin = 100;
   const box = [margin, margin, width - margin, height - margin];
   const boxedLines = clipPolylinesToBox(lines, box);
