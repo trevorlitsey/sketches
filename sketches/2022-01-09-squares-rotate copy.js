@@ -1,6 +1,5 @@
 const canvasSketch = require('canvas-sketch');
 const { renderPaths } = require('canvas-sketch-util/penplot');
-const { clipPolylinesToBox } = require('canvas-sketch-util/geometry');
 const rotate = require('../helpers/rotate');
 
 const settings = {
@@ -14,7 +13,7 @@ const NUMBER_OF_SQUARES = 100;
 const MARGIN = 100;
 
 // Start the sketch
-const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const spacing = (width - MARGIN) / 2 / NUMBER_OF_SQUARES;
   const lines = Array.from({ length: NUMBER_OF_SQUARES }, (_, i) => {
     const yOffset = (height - width) / 2;

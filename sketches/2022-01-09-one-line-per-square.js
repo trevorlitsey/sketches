@@ -1,7 +1,5 @@
 const canvasSketch = require('canvas-sketch');
 const { renderPaths } = require('canvas-sketch-util/penplot');
-const { clipPolylinesToBox } = require('canvas-sketch-util/geometry');
-const rotate = require('../helpers/rotate');
 
 const settings = {
   dimensions: 'A4',
@@ -12,11 +10,10 @@ const settings = {
 };
 
 const PAGE_MARGIN = 1;
-const SQUARE_MARGIN = 0.2;
 const SQUARE_WIDTH = 1;
 
 // Start the sketch
-const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const lines = [];
 
   const howManySquaresAcross = (width - PAGE_MARGIN * 2) / SQUARE_WIDTH;

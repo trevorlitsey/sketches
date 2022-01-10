@@ -1,6 +1,5 @@
 const canvasSketch = require('canvas-sketch');
 const { renderPaths } = require('canvas-sketch-util/penplot');
-const { clipPolylinesToBox } = require('canvas-sketch-util/geometry');
 const rotate = require('../helpers/rotate');
 
 const settings = {

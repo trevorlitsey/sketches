@@ -13,11 +13,11 @@ const settings = {
   units: 'cm',
 };
 
-const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const lines = [];
 
-  for (i = 1; i < width - 1; i++) {
-    for (y = 1; y < height - 1; y++) {
+  for (let i = 1; i < width - 1; i++) {
+    for (let y = 1; y < height - 1; y++) {
       const hatchedBox = createHatchLines(
         [0, 0, width, height],
         (-Math.PI / Math.random()) * 4,

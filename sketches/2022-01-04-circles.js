@@ -1,6 +1,5 @@
 const canvasSketch = require('canvas-sketch');
 const { renderPaths, createPath } = require('canvas-sketch-util/penplot');
-const { clipPolylinesToBox } = require('canvas-sketch-util/geometry');
 
 const settings = {
   dimensions: 'A4',
@@ -14,7 +13,7 @@ const NUM_OF_CIRCLES = 40;
 const MARGIN = 1;
 
 // Start the sketch
-const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = ({ trimWidth: width, trimHeight: height }) => {
   // Create shapes with path interface
   const paths = [];
   for (let i = 2; i < NUM_OF_CIRCLES; i++) {

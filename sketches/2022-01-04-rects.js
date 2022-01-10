@@ -1,5 +1,5 @@
 const canvasSketch = require('canvas-sketch');
-const { renderPaths, createPath } = require('canvas-sketch-util/penplot');
+const { renderPaths } = require('canvas-sketch-util/penplot');
 const {
   createHatchLines,
   clipPolylinesToBox,
@@ -13,10 +13,7 @@ const settings = {
   units: 'cm',
 };
 
-const NUM_OF_CIRCLES = 50;
-const MARGIN = 1;
-
-const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const hatchedBox = createHatchLines([0, 0, width, height], -Math.PI / 4, 0.1);
 
   // Combine into an array or nested array

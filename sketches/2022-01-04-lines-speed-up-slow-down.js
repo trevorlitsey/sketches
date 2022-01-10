@@ -12,7 +12,7 @@ const settings = {
 
 const MARGIN = 1.5;
 
-const sketch = async ({ trimWidth: width, trimHeight: height, ...props }) => {
+const sketch = async ({ trimWidth: width, trimHeight: height }) => {
   let spacing = 0.1;
 
   const lines = [];
