@@ -13,11 +13,8 @@ const settings = {
   units: 'cm',
 };
 
-const NUM_OF_CIRCLES = 50;
-const MARGIN = 1;
-
 const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
-  const boxes = [];
+  const lines = [];
 
   for (i = 1; i < width - 1; i++) {
     for (y = 1; y < height - 1; y++) {
@@ -27,16 +24,23 @@ const sketch = ({ trimWidth: width, trimHeight: height, ...props }) => {
         0.2
       );
 
-      boxes.push(
+      lines.push(
         clipPolylinesToBox(hatchedBox, [
           [i, y],
           [i + 1, y + 1],
         ])
       );
+
+      // add borders
+      lines.push(
+        createPath((context) => {
+          context.rect(i, y, 1, 1);
+        })
+      );
     }
   }
 
-  return (props) => renderPaths(boxes, props);
+  return (props) => renderPaths(lines, props);
 };
 
 // Start the sketch with parameters
