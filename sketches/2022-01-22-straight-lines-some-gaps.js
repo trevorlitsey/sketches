@@ -2,23 +2,23 @@ const canvasSketch = require('canvas-sketch');
 const { renderPaths } = require('canvas-sketch-util/penplot');
 
 const settings = {
-  dimensions: 'A4',
+  dimensions: [8.5, 11],
   orientation: 'portrait',
   pixelsPerInch: 300,
   scaleToView: true,
-  units: 'px',
+  units: 'in',
 };
 
-const PAGE_MARGIN = 50;
+const PAGE_MARGIN = 0.5;
 const HOW_MANY_LINES = 100; // plus one :)
-const GAP_SIZE = 50;
+const GAP_SIZE = 0.1;
 
 const makeLines = ([fromX, fromY], width, height) => {
   const lines = [];
 
   for (let i = 0; i <= HOW_MANY_LINES; i++) {
     const x = fromX + i * (width / HOW_MANY_LINES);
-    let y = Math.random() > 0.5 ? fromY : fromY + GAP_SIZE * Math.random();
+    let y = Math.random() > 0.8 ? fromY : fromY + GAP_SIZE * Math.random();
     while (y < fromY + height) {
       const newY = y + (height * Math.random()) / 10;
       lines.push([
