@@ -10,7 +10,7 @@ const settings = {
   scaleToView: true,
 };
 
-const NUMBER_OF_SQUARES = 45;
+const NUMBER_OF_SQUARES = 50;
 
 const makeCircleOfSquares = (centerPoint, squareWidth) => {
   return Array.from({ length: NUMBER_OF_SQUARES }, (_, i) => {
@@ -28,7 +28,11 @@ const makeCircleOfSquares = (centerPoint, squareWidth) => {
       [bottomLeft, topLeft],
     ].map((points) =>
       points.map((point) =>
-        rotate(centerPoint, point, (i * 90) / NUMBER_OF_SQUARES)
+        rotate(
+          centerPoint.map((xOrY, i) => xOrY + 200 * (i - 2)),
+          point,
+          (i * 90) / NUMBER_OF_SQUARES
+        )
       )
     );
   }).flatMap((square) => square);
@@ -37,7 +41,10 @@ const makeCircleOfSquares = (centerPoint, squareWidth) => {
 // Start the sketch
 const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const squareWidth = width * 0.5;
-  const circle1 = makeCircleOfSquares([width / 2, height / 2], squareWidth);
+  const circle1 = makeCircleOfSquares(
+    [(width / 3) * 2, height / 2],
+    squareWidth
+  );
   // const circle2 = makeCircleOfSquares([width / 2, height / 2], squareWidth);
   // const circle3 = makeCircleOfSquares(
   //   [width / 2, (height / 5) * 5],
