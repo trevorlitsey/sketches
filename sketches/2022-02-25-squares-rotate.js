@@ -4,7 +4,7 @@ const getSquareLines = require('../helpers/getSquareLines');
 const rotate = require('../helpers/rotate');
 
 const settings = {
-  dimensions: [21, 21], // 8.5 x 11
+  dimensions: [10, 15], // 8.5 x 11
   orientation: 'portrait',
   pixelsPerInch: 300,
   scaleToView: true,
@@ -13,7 +13,6 @@ const settings = {
 const MARGIN = 0.1;
 const WIDTH = 1;
 const START = Math.floor(Math.random() * 90);
-const MULT = Math.random() * 90;
 
 const sketch = ({ trimWidth: width, trimHeight: height }) => {
   const lines = [];
